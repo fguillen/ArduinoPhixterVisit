@@ -7,11 +7,19 @@
 
 
 require 'socket'               # Get sockets from stdlib
+require "#{File.dirname(__FILE__)}/arduino_serial_talker"
+
+ast = ArduinoSerialTalker.new
 
 server = TCPServer.open(20000)  # Socket to listen on port 2000
 loop {                         # Servers run forever
   client = server.accept       # Wait for a client to connect
   puts "XXX: client accepted"
-  puts "XXX: client say: #{client.getc}"
+  
+  char = client.getc.chr
+  puts "XXX: client say: #{char}"
+  
+  ast.writeByte char
+  
   client.close                 # Disconnect from the client
 }
