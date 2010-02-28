@@ -2,7 +2,7 @@ require 'rubygems'
 require 'sinatra'
 
 get '/:q' do
-  socket = TCPSocket.open( '79.157.225.218', 20000 )
+  socket = TCPSocket.open( 'fguillen.no-ip.org', 20000 )
   socket.write( params[:q] )
   socket.close
 end
