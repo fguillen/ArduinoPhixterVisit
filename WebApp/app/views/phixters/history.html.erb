@@ -1,0 +1,29 @@
+<% title "Phixter History" %>
+
+<!-- Tab01 -->
+<div>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+</div> <!-- /tab01 -->
+
+
+<h3 class="tit">History for Fixter</h3>
+<p><%=h "#{@phixter.uri}/#{@phixter.value}" %></p>
+
+<!-- Table (TABLE) -->
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Status</th>
+    <th>Comments</th>
+  </tr>
+  <% @phixter.history_events.each do |event| %>
+  <tr class="<%= cycle('', 'bg') -%>">
+    <td><%= event.created_at %></td>
+    <td><%= event.status %></td>
+    <td><%= event.comment %></td>
+  </tr>
+  <% end %>
+
+</table>

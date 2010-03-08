@@ -26,10 +26,10 @@ class ArduinoSerialTalker
   end
 end
 
-ast = ArduinoSerialTalker.new
-4.times do
-  ast.writeByte( '1' )
-  sleep( 0.5 )
-  ast.writeByte( '0' )
-  sleep( 0.5 )
-end
+# ast = ArduinoSerialTalker.new
+# 4.times do
+#   ast.writeByte( '1' )
+#   sleep( 0.5 )
+#   ast.writeByte( '0' )
+#   sleep( 0.5 )
+# end

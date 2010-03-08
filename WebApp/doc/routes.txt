@@ -1,0 +1,28 @@
+(in /Users/fguillen/Develop/Rails/Current/PhixterVisits)
+               login        /login                                         {:controller=>"user_sessions", :action=>"new"}
+              logout        /logout                                        {:controller=>"user_sessions", :action=>"destroy"}
+       user_sessions GET    /user_sessions(.:format)                       {:controller=>"user_sessions", :action=>"index"}
+                     POST   /user_sessions(.:format)                       {:controller=>"user_sessions", :action=>"create"}
+    new_user_session GET    /user_sessions/new(.:format)                   {:controller=>"user_sessions", :action=>"new"}
+   edit_user_session GET    /user_sessions/:id/edit(.:format)              {:controller=>"user_sessions", :action=>"edit"}
+        user_session GET    /user_sessions/:id(.:format)                   {:controller=>"user_sessions", :action=>"show"}
+                     PUT    /user_sessions/:id(.:format)                   {:controller=>"user_sessions", :action=>"update"}
+                     DELETE /user_sessions/:id(.:format)                   {:controller=>"user_sessions", :action=>"destroy"}
+       user_phixters GET    /users/:user_id/phixters(.:format)             {:controller=>"phixters", :action=>"index"}
+                     POST   /users/:user_id/phixters(.:format)             {:controller=>"phixters", :action=>"create"}
+    new_user_phixter GET    /users/:user_id/phixters/new(.:format)         {:controller=>"phixters", :action=>"new"}
+   edit_user_phixter GET    /users/:user_id/phixters/:id/edit(.:format)    {:controller=>"phixters", :action=>"edit"}
+   code_user_phixter GET    /users/:user_id/phixters/:id/code(.:format)    {:controller=>"phixters", :action=>"code"}
+history_user_phixter GET    /users/:user_id/phixters/:id/history(.:format) {:controller=>"phixters", :action=>"history"}
+  check_user_phixter GET    /users/:user_id/phixters/:id/check(.:format)   {:controller=>"phixters", :action=>"check"}
+        user_phixter GET    /users/:user_id/phixters/:id(.:format)         {:controller=>"phixters", :action=>"show"}
+                     PUT    /users/:user_id/phixters/:id(.:format)         {:controller=>"phixters", :action=>"update"}
+                     DELETE /users/:user_id/phixters/:id(.:format)         {:controller=>"phixters", :action=>"destroy"}
+               users GET    /users(.:format)                               {:controller=>"users", :action=>"index"}
+                     POST   /users(.:format)                               {:controller=>"users", :action=>"create"}
+            new_user GET    /users/new(.:format)                           {:controller=>"users", :action=>"new"}
+           edit_user GET    /users/:id/edit(.:format)                      {:controller=>"users", :action=>"edit"}
+                user GET    /users/:id(.:format)                           {:controller=>"users", :action=>"show"}
+                     PUT    /users/:id(.:format)                           {:controller=>"users", :action=>"update"}
+                     DELETE /users/:id(.:format)                           {:controller=>"users", :action=>"destroy"}
+                root        /                                              {:controller=>"statics", :action=>"home"}

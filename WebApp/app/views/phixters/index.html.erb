@@ -1,0 +1,52 @@
+<%# title "Phixters" %>
+
+
+
+
+<!-- Tab01 -->
+<div>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+</div> <!-- /tab01 -->
+
+
+
+
+<% title "Your Phixter" %>
+
+<!-- Table (TABLE) -->
+<table>
+  <tr>
+    <th>Id</th>
+    <th>URL:Port</th>
+    <th>Value</th>
+    <th>Status</th>
+    <th>Check</th>
+    <th>Delete</th>
+    <th>Code</th>
+    <th>History</th>
+  </tr>
+  
+  <% @phixters.each do |phixter| %>
+  <tr class="<%= cycle("", "bg") -%>">
+    <td><%= phixter.id %></td>
+    <td><%=h phixter.uri %></td>
+    <td><%=h phixter.value %></td>
+    <td><%= phixter.status %></td>
+    <td><%= link_to "x", check_phixter_path( phixter ) %></td>
+    <td><%= link_to "x", phixter_path( phixter ), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to "x", code_phixter_path( phixter ) %></td>
+    <td><%= link_to "x", history_phixter_path( phixter ) %></td>
+  </tr>
+  <% end %>
+  <% form_for (@phixter || Phixter.new) do |f| %>
+  <tr>
+    <td>X</td>
+    <td><%= f.text_field :uri, :size => "40", :class => "input-text" %></td>
+    <td><%= f.text_field :value, :size => "3", :class => "input-text" %></td>
+    <td colspan="5"><%= f.submit "New Phixter", :class => "input-submit" %></td>
+  </tr>
+  <% end %>
+</table>
+
