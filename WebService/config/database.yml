@@ -1,0 +1,14 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: phixter_visits_development
+
+test:
+  adapter: mysql
+  encoding: utf8
+  database: phixter_visits_test
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: phixter_visits_production

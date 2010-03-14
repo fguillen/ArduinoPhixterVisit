@@ -1,0 +1,26 @@
+<% title "Phixter History" %>
+
+<!-- Tab01 -->
+<div>
+  <p>This is the last history of signals received for this Phixter.</p>
+</div> <!-- /tab01 -->
+
+
+<h3 class="tit">History for Phixter: <%=h "#{@phixter.uri}/#{@phixter.value}" %></h3>
+
+<!-- Table (TABLE) -->
+<table width="100%">
+  <tr>
+    <th>Date</th>
+    <th align="center">Status</th>
+    <th>Comments</th>
+  </tr>
+  <% @phixter.history_events.each do |event| %>
+  <tr class="<%= cycle('', 'bg') -%>">
+    <td width="55%"><%= event.created_at.to_s(:date_time24) %></td>
+    <td width="5%" align="center"><%= image_tag "phixter_visits_icon_status_#{event.status}.gif" %></td>
+    <td width="40%"><%= event.comment %></td>
+  </tr>
+  <% end %>
+
+</table>

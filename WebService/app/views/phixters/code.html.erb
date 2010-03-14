@@ -1,0 +1,24 @@
+<% title "Phixter, the code" %>
+
+<div>
+  <p>Copy and paste this code on your website, it will look like a normal image,
+    but actually is a signal to your Phixter Visits Local Server.</p>
+    
+  <p>The surrounding link is completely not needed, it is just a reference to this site.
+    In fact you can make the image invisible changing the 'height' and 'width' by '0px'.</p>
+</div>
+
+<textarea cols="40" rows="5">
+<a href="<%= root_url %>">
+<img src="<%= signal_url(@phixter.hash_code) %>" height="64px" width="149px" />
+</a>
+</textarea>
+
+<div>
+  <p>It will look like this.</p>
+</div>
+
+
+<a href="<%= root_url %>">
+<img src="/images/phixter_visits_link_icon.gif" height="64px" width="149px" />
+</a>

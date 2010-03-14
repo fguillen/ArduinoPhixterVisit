@@ -1,0 +1,54 @@
+<% title "Your Phixters" %>
+
+
+
+
+<!-- Tab01 -->
+<div>
+  <p>These are all your active Phixters.</p>
+</div> <!-- /tab01 -->
+
+<!-- Table (TABLE) -->
+<table>
+  <tr>
+    <th>Code</th>
+    <th>URL:Port</th>
+    <th align="center">Value</th>
+    <th align="center">Status</th>
+    <th align="center">Check</th>
+    <th align="center">Delete</th>
+    <th align="center">Code</th>
+    <th align="center">History</th>
+  </tr>
+  
+  <% @phixters.each do |phixter| %>
+  <tr class="<%= cycle("", "bg") -%>">
+    <td><%= phixter.hash_code %></td>
+    <td><%=h phixter.uri %></td>
+    <td align="center"><%=h phixter.value %></td>
+    <td align="center"><%= image_tag "phixter_visits_icon_status_#{phixter.status}.gif" %></td>
+    <td align="center"><%= link_to image_tag( "phixter_visits_icon_check.gif" ), check_phixter_path( phixter.hash_code ), :title => 'Send a signal to your Phixter Visits Local Server.' %></td>
+    <td align="center"><%= link_to( image_tag( "phixter_visits_icon_delete.gif" ), phixter_path( phixter ), :confirm => 'Are you sure?', :method => :delete, :title => "Delete this Phixter." ) %></td>
+    <td align="center"><%= link_to image_tag( "phixter_visits_icon_code.gif" ), code_phixter_path( phixter ), :title => 'Show the code you have to introduce on your website.'%></td>
+    <td align="center"><%= link_to image_tag( "phixter_visits_icon_history.gif" ), history_phixter_path( phixter ), :title => 'Show the history of the last signals received with this Phixter.' %></td>
+  </tr>
+  <% end %>
+  <% form_for (@phixter || Phixter.new) do |f| %>
+  <%= f.error_messages %>
+  <tr>
+    <td></td>
+    <td><%= f.text_field :uri, :size => "40", :class => "input-text" %></td>
+    <td><%= f.text_field :value, :size => "3", :class => "input-text" %></td>
+    <td colspan="5"><%= f.submit "New Phixter", :class => "input-submit" %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+<div>
+  <p>Use the small form on the bottom of the list to add new Phixters.</p>
+  <p>For new Phixters you have to introduce the URL and the PORT where the
+    Phixter Visits Local Server is listening. For example 'myuser.no-ip.org:20000'.</p>
+  <p>Also you have to introduce a value that will be sent to Arduino. Example '1' or '2' or '3'...</p>
+  <p>
+</div>

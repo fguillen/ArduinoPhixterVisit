@@ -1,0 +1,29 @@
+<% title "Request for Password Reset" %>
+
+<!-- Tab01 -->
+<div>
+  <p>Fill out the form below and instructions to reset your password will be emailed to you.</p>
+</div> <!-- /tab01 -->
+
+<!-- Form -->
+<% form_for @user, :url => password_resets_path do |f| %>
+<%= f.error_messages %>
+<fieldset>
+  <legend>Password Reset Request</legend>
+  <table class="nostyle">
+    <tr>
+      <td style="width:170px;"><%= f.label :email %>:</td>
+      <td><%= f.text_field :email, :size => '40', :class => 'input-text' %></td>
+    </tr>
+
+    <tr>
+      <td colspan="2" class="t-right"><%= f.submit "Request Password Reset", :class => 'input-submit' %></td>
+    </tr>
+  </table>
+</fieldset>
+<% end %>
+
+
+
+
+

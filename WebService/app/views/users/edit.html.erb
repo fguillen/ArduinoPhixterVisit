@@ -1,0 +1,43 @@
+<% title "My Account" %>
+
+<!-- Tab01 -->
+<div>
+  <p>Here you can update your info, even you can delete your account.</p>
+</div> <!-- /tab01 -->
+
+
+
+
+<!-- Form -->
+<% form_for @user do |f| %>
+<%= f.error_messages %>
+<fieldset>
+  <legend>Update info</legend>
+  <table class="nostyle">
+    <tr>
+      <td style="width:170px;"><%= f.label :email %>:</td>
+      <td><%= f.text_field :email, :size => "40", :class => "input-text" %></td>
+    </tr>
+    <tr>
+      <td style="width:170px;"><%= f.label :email_confirmation %>:</td>
+      <td><%= f.text_field :email_confirmation, :size => "40", :class => "input-text" %></td>
+    </tr>
+    <tr>
+      <td style="width:170px;"><%= f.label :password %>:</td>
+      <td><%= f.password_field :password, :size => "40", :class => "input-text" %></td>
+    </tr>
+    <tr>
+      <td style="width:170px;"><%= f.label :password_confirmation %>:</td>
+      <td><%= f.password_field :password_confirmation, :size => "40", :class => "input-text" %></td>
+    </tr>
+    
+    <tr>
+      <td colspan="2" class="t-right"> <%= f.submit "Update Info", :class => "input-submit" %></td>
+    </tr>
+  </table>
+</fieldset>
+<% end %>
+
+<%= link_to( "Delete account", user_path( @user ), :confirm => 'Are you sure?', :method => :delete ) %>
+
+

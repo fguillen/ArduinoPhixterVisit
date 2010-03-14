@@ -1,0 +1,29 @@
+<% title "Reset your Password" %>
+
+<!-- Tab01 -->
+<div>
+  <p>Now you can update your password for other one you are not going to forgot.</p>
+</div> <!-- /tab01 -->
+
+<!-- Form -->
+<% form_for @user, :url => password_reset_path, :html => { :method => :put } do |f| %>
+<%= f.error_messages %>
+<fieldset>
+  <legend>Reset your Password</legend>
+  <table class="nostyle">
+    
+    <tr>
+      <td style="width:170px;"><%= f.label :password %>:</td>
+      <td><%= f.password_field :password, :size => "40", :class => "input-text" %></td>
+    </tr>
+    <tr>
+      <td style="width:170px;"><%= f.label :password_confirmation %>:</td>
+      <td><%= f.password_field :password_confirmation, :size => "40", :class => "input-text" %></td>
+    </tr>
+
+    <tr>
+      <td colspan="2" class="t-right"><%= f.submit "Update my password and log me in", :class => 'input-submit' %></td>
+    </tr>
+  </table>
+</fieldset>
+<% end %>
