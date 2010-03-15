@@ -2,7 +2,7 @@
 
 <!-- Tab01 -->
 <div>
-  <p>This is the last history of signals received for this Phixter.</p>
+  <p>This is the last history of signals received for this Phixter. Only the last 100 request will be shown.</p>
 </div> <!-- /tab01 -->
 
 
@@ -15,7 +15,7 @@
     <th align="center">Status</th>
     <th>Comments</th>
   </tr>
-  <% @phixter.history_events.each do |event| %>
+  <% @phixter.history_events.find(:all, :order => 'created_at desc').each do |event| %>
   <tr class="<%= cycle('', 'bg') -%>">
     <td width="55%"><%= event.created_at.to_s(:date_time24) %></td>
     <td width="5%" align="center"><%= image_tag "phixter_visits_icon_status_#{event.status}.gif" %></td>
