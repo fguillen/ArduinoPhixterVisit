@@ -1,5 +1,5 @@
 class PhixtersController < ApplicationController
-  before_filter :require_user, :except => [:check]
+  before_filter :require_user, :except => [:check, :send_signal]
   
   def index
     @phixters = current_user.phixters
