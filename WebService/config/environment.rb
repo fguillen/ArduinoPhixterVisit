@@ -20,7 +20,7 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'authlogic'
-  config.gem 'thoughtbot-factory_girl', :lib => "factory_girl", :source => "http://gems.github.com"
+  config.gem 'factory_girl'
   config.gem 'mocha'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
